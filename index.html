@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>William Adam Stocks • Junior Full Stack Developer</title>
+    <link rel="icon" href="data:,">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -213,6 +214,31 @@
                 margin: 0.55in 0.5in;
             }
             
+            .print-only {
+                display: block !important;
+            }
+
+            .print-qr {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                text-align: center;
+                margin-top: 16px;
+                padding-top: 12px;
+                border-top: 1px solid #cbd5e1;
+                color: #1e293b !important;
+            }
+
+            .print-qr img {
+                width: 1.3in;
+                height: 1.3in;
+                margin: 0 auto 6px;
+                display: block;
+            }
+
+            #mobileMenu,
+            #projectModal,
+            footer .flex,
+            a[href="#projects"].hidden,
             .no-print,
             nav,
             #darkModeToggle,
@@ -328,6 +354,44 @@
         .scroll-animate.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Print: readable on white (beats theme selectors) */
+        @media print {
+            html body[class] .bg-zinc-900,
+            html body[class] .bg-zinc-950,
+            html body[class] .bg-zinc-800,
+            html body[class] .project-card,
+            html body[class] footer {
+                background: white !important;
+                border-color: #cbd5e1 !important;
+                box-shadow: none !important;
+            }
+            html body[class] .text-white,
+            html body[class] .text-zinc-200,
+            html body[class] .text-zinc-300 {
+                color: #1e293b !important;
+            }
+            html body[class] .text-zinc-400,
+            html body[class] .text-zinc-500 {
+                color: #475569 !important;
+            }
+            html body[class] .text-cyan-400,
+            html body[class] .text-blue-400 {
+                color: #0369a1 !important;
+            }
+            html body[class] {
+                zoom: 0.62;
+            }
+            html body[class] .section-header {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+            html body[class] .bg-zinc-700 {
+                background: #e2e8f0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
     </style>
 </head>
@@ -814,6 +878,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Print-only QR code -->
+    <section class="print-only print-qr" aria-hidden="true">
+        <img src="cv-qr.svg" alt="QR code linking to https://stocks84.github.io/william-stocks-cv/">
+        <p>Scan for the full interactive CV.</p>
+        <p style="font-size:8.5pt;">stocks84.github.io/william-stocks-cv</p>
+    </section>
 
     <!-- Project Modals -->
     <div id="projectModal" onclick="hideProjectModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-6">
