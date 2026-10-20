@@ -209,6 +209,13 @@ const projects = [
         tech: ["HTML5", "CSS3", "JavaScript", "React", "Python", "Django REST Framework", "MySQL", "Bootstrap"],
         live: "#",
         github: "https://github.com/Stocks84/Old-Fashion"
+    },
+    {
+        title: "Will's Body",
+        description: "An offline-first gym tracker PWA built in vanilla JavaScript with no build step. Features a floating rest timer, workout logging with session history, progression suggestions, and metallic dark/light themes, with all data stored on the device.",
+        tech: ["HTML5", "CSS3", "JavaScript", "PWA", "Service Worker"],
+        live: "https://stocks84.github.io/wills-body/",
+        github: "https://github.com/Stocks84/wills-body"
     }
 ];
 
