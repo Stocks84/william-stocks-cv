@@ -352,3 +352,10 @@ function init() {
 
 // Boot the app
 window.onload = init;
+
+// PWA: register the service worker for offline use and home-screen install
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed', err));
+    });
+}
