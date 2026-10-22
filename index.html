@@ -18,6 +18,16 @@
     <link rel="stylesheet" href="css/tailwind.css">
 </head>
 <body class="bg-zinc-950 text-zinc-200 mountain">
+    <!-- QR welcome screen: shown on every open; tap/click, Enter or Escape to view the CV -->
+    <div id="welcome" class="welcome no-print" role="dialog" aria-modal="true" aria-labelledby="welcomeName" aria-describedby="welcomeHint">
+        <div class="welcome-card">
+            <p class="welcome-kicker">Junior Full Stack Developer</p>
+            <p id="welcomeName" class="welcome-name">William Stocks</p>
+            <div class="welcome-qr"><img src="qr-welcome.svg" width="260" height="260" alt="QR code linking to https://stocks84.github.io/william-stocks-cv/"></div>
+            <p id="welcomeHint" class="welcome-hint">Scan to open this CV on your phone</p>
+            <button id="welcomeBtn" type="button" class="welcome-btn">View CV <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+    </div>
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-zinc-950/95 backdrop-blur-lg border-b border-zinc-800 no-print">
         <div class="max-w-7xl mx-auto px-5 sm:px-6 py-4 flex items-center justify-between">
@@ -565,5 +575,26 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+    (function () {
+        var w = document.getElementById('welcome'), b = document.getElementById('welcomeBtn');
+        if (!w) return;
+        document.documentElement.classList.add('welcome-open');
+        b.focus({ preventScroll: true });
+        function close() {
+            if (w.classList.contains('welcome-hide')) return;
+            w.classList.add('welcome-hide');
+            document.documentElement.classList.remove('welcome-open');
+            document.removeEventListener('keydown', onKey);
+            setTimeout(function () { w.hidden = true; }, 350);
+        }
+        function onKey(e) {
+            if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); close(); }
+            else if (e.key === 'Tab') { e.preventDefault(); b.focus(); }
+        }
+        w.addEventListener('click', close);
+        document.addEventListener('keydown', onKey);
+    })();
+    </script>
 </body>
 </html>

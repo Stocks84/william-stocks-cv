@@ -1,9 +1,9 @@
 // Service worker: offline support for the CV. Bump CACHE on each release.
-const CACHE = 'cv-v1';
+const CACHE = 'cv-v2';
 const CORE = [
   './', 'index.html', 'css/style.css', 'css/tailwind.css', 'js/main.js',
   'favicon.svg', 'apple-touch-icon.png', 'icons/icon-192.png', 'icons/icon-512.png',
-  'icons/icon-maskable-512.png', 'william-stocks-headshot.jpg', 'qr-code.png',
+  'icons/icon-maskable-512.png', 'william-stocks-headshot.jpg', 'qr-code.png', 'qr-welcome.svg',
   'william-stocks-cv.pdf', 'manifest.webmanifest'
 ];
 

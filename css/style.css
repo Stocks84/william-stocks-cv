@@ -383,3 +383,26 @@ body {
         print-color-adjust: exact;
     }
 }
+
+/* ===== QR welcome screen ===== */
+html.welcome-open, html.welcome-open body { overflow: hidden; }
+.welcome {
+    position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
+    padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
+    background: radial-gradient(ellipse at top, #13284d 0%, #0a1428 60%); color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif; cursor: pointer;
+    transition: opacity .35s ease, visibility .35s ease;
+}
+.welcome.welcome-hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.welcome-card { width: 100%; max-width: 22rem; text-align: center; }
+.welcome-kicker { color: #67e8f9; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 .5rem; }
+.welcome-name { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: clamp(2.1rem, 9vw, 2.75rem); font-weight: 600; line-height: 1.1; margin: 0 0 1.75rem; color: #fff; letter-spacing: -.02em; }
+.welcome-qr { background: #fff; border-radius: 1.5rem; padding: 1rem; margin: 0 auto; width: min(72vw, 280px); box-shadow: 0 0 0 1px #1e3a5f, 0 20px 50px -12px rgba(34,211,238,.35); }
+.welcome-qr img { display: block; width: 100%; height: auto; }
+.welcome-hint { color: #94a3b8; font-size: .9rem; margin: 1.25rem 0 1.5rem; }
+.welcome-btn { display: inline-flex; align-items: center; gap: .6rem; padding: .85rem 1.75rem; border-radius: 1rem; border: 0; background: #0891b2; color: #fff; font: 600 1rem 'Inter', sans-serif; cursor: pointer; min-height: 48px; transition: background .2s, transform .1s; }
+.welcome-btn:hover { background: #06b6d4; }
+.welcome-btn:active { transform: scale(.98); }
+.welcome-btn:focus-visible { outline: 3px solid #67e8f9; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .welcome { transition: none; } }
+@media print { .welcome { display: none !important; } html.welcome-open, html.welcome-open body { overflow: visible !important; } }
