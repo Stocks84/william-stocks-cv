@@ -385,6 +385,7 @@ body {
 }
 
 /* ===== QR welcome screen ===== */
+html.no-welcome .welcome { display: none !important; }
 html.welcome-open, html.welcome-open body { overflow: hidden; }
 .welcome {
     position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
