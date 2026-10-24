@@ -17,19 +17,21 @@
     <!-- Compiled Tailwind CSS v3 (see README to rebuild); loaded last, as the Play CDN did -->
     <link rel="stylesheet" href="css/tailwind.css">
     <script>
-    /* Skip the QR welcome screen when the visitor just scanned it (?from=qr) or opened the installed app */
+    /* Skip the QR welcome screen when the visitor just scanned it (?from=qr); still show it in the installed app */
     (function () {
         try {
             var u = new URL(location.href), qr = u.searchParams.get('from') === 'qr';
-            var app = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-            if (qr || app) document.documentElement.classList.add('no-welcome');
-            if (qr) { u.searchParams.delete('from'); history.replaceState(null, '', u.pathname + u.search + u.hash); }
+            if (qr) {
+                document.documentElement.classList.add('no-welcome');
+                u.searchParams.delete('from');
+                history.replaceState(null, '', u.pathname + u.search + u.hash);
+            }
         } catch (e) {}
     })();
     </script>
 </head>
 <body class="bg-zinc-950 text-zinc-200 mountain">
-    <!-- QR welcome screen: shown on every open (skipped after a QR scan or in the installed app); tap/click, Enter or Escape to view the CV -->
+    <!-- QR welcome screen: shown on every open (skipped after a QR scan); tap/click, Enter or Escape to view the CV -->
     <div id="welcome" class="welcome no-print" role="dialog" aria-modal="true" aria-labelledby="welcomeName" aria-describedby="welcomeHint">
         <div class="welcome-card">
             <p class="welcome-kicker">Junior Full Stack Developer</p>

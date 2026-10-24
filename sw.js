@@ -1,5 +1,5 @@
 // Service worker: offline support for the CV. Bump CACHE on each release.
-const CACHE = 'cv-v3';
+const CACHE = 'cv-v4';
 const CORE = [
   './', 'index.html', 'css/style.css', 'css/tailwind.css', 'js/main.js',
   'favicon.svg', 'apple-touch-icon.png', 'icons/icon-192.png', 'icons/icon-512.png',
