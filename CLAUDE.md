@@ -20,7 +20,7 @@ HTML5, vanilla JavaScript, Tailwind CSS v3 (precompiled and committed), custom C
 ## Conventions
 - The compiled Tailwind file is committed so the site works as plain static files.
 - Do not run `build:css` from a Stop hook (it writes `css/tailwind.css`).
-- Never commit secrets or `willsto84@gmail.com`. Git author must be `Stocks84 <124254214+Stocks84@users.noreply.github.com>`. Do not push to `main` or merge without Will's approval.
+- Never commit secrets or Will's personal Gmail; use `124254214+Stocks84@users.noreply.github.com` instead. Git author must be `Stocks84 <124254214+Stocks84@users.noreply.github.com>`. Do not push to `main` or merge without Will's approval.
 
 ## End-of-job report
 Every finished coding job must be reported in this shape. Only list a check under CHECKS RUN if it actually ran; anything untested goes under NOT CHECKED, never left out.
