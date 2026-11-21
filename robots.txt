@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stocks84.github.io/william-stocks-cv/sitemap.xml
